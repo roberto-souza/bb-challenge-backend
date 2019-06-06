@@ -1,0 +1,64 @@
+FORMAT: 1A
+HOST: http://vuttr.com
+
+# VUTTR
+
+API da VUTTR para gerenciar ferramentas
+
+# Group API
+
+## Sobre [/]
+
+Todas as chamadas da API tem um prefixo `/api`
+
+## Ferramentas [/api/tools]
+
+### Criar Ferramenta [POST]
+
+  + Request Criar uma ferramenta
+    + Atributes (Tool)
+    + Headers
+
+
+            Content-Type: application/json
+
+
+  + Response 200 (application/json)
+
+        + Atributes (Tool)
+
+### Ver Ferramentas [GET]
+
+  + Response 200 (application/json)
+
+        + Atributes (array[Tool])
+
+## Ferramentas [/api/tools/{id}]
+
+  + Parameters
+    + id: ID da ferramenta
+
+### Excluir Ferramenta [DELETE]
+
+  + Response 204 (application/json)
+
+## Ferramentas [/api/tools/tags?tag={tag}]
+
+### Buscar por tag [GET]
+
+  + Response 200 (application/json)
+
+        + Atributes (array[Tool])
+
+# Data Structures
+
+## Tool (object)
++ ID (number) - ID da ferramenta
++ Title (string) - Titulo da ferramenta
++ Link (string) - Link para o site oficial da ferramenta
++ Description (string) - Descrição da ferramenta
++ Tags (array[Tag]) - Lista de Tags da ferramenta
+
+## Tag (object)
++ ID (number) - ID da Tag
++ Name (string) - Nome da Tag
